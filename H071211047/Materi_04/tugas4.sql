@@ -1,0 +1,51 @@
+-- USE classicmodels;
+-- nomor 1
+-- SELECT P.productName, O.orderDate FROM orders AS O
+-- INNER JOIN orderdetails AS Z
+-- ON O.orderNumber = Z.orderNumber
+-- INNER JOIN products AS P
+-- ON P.productCode = Z.productCode
+-- WHERE P.productName = "1940 Ford Pickup Truck"
+-- ORDER BY O.orderDate DESC;
+-- SELECT * FROM orders;
+-- SELECT * FROM products;
+
+-- nomor 2
+-- SELECT P.productName, Z.priceEach FROM orderdetails AS Z
+-- INNER JOIN products AS p
+-- ON P.productCode = Z.productCode
+-- WHERE Z.priceEach = 0.8*MSRP;
+
+-- nomor 3
+-- USE appseminar;
+-- SELECT D.nama, P.id_pembimbing_utama, M.nama FROM ss_mahasiswa AS M
+-- INNER JOIN ss_pembimbing AS P
+-- ON P.id_mahasiswa = M.id_mahasiswa
+-- INNER JOIN ss_dosen AS D
+-- ON D.id_dosen = P.id_pembimbing_utama
+-- WHERE M.nama = "Sulaeman";
+
+-- nomor 4
+-- ALTER TABLE customers
+-- ADD STATUS VARCHAR(10);
+-- UPDATE customers AS C inner JOIN payments AS P
+-- ON C.customerNumber = P.customerNumber
+-- INNER JOIN orders AS O
+-- ON C.customerNumber = O.customerNumber
+-- INNER JOIN orderdetails AS R
+-- ON R.orderNumber = O.orderNumber
+-- SET O.`status` = "VIP"
+-- WHERE R.quantityOrdered >= 50 AND P.amount >= 100000;
+-- UPDATE customers
+-- SET customers.status = "Reguler"
+-- WHERE customers.status IS NULL; 
+
+-- nomor 5
+-- SHOW CREATE TABLE payments;
+-- ALTER TABLE payments DROP CONSTRAINT `payments_ibfk_1`;
+-- ALTER TABLE orders DROP CONSTRAINT `orders_ibfk_1`;
+--  
+-- SELECT DISTINCT STATUS from orders;
+-- DELETE customers FROM customers INNER JOIN orders
+-- ON customers.customerNumber = orders.customerNumber
+-- WHERE status in ("cancelled");
