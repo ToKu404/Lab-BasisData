@@ -1,0 +1,48 @@
+-- USE classicmodels;
+-- nmor 1
+-- SELECT C.creditLimit, C.customerName, O.`status`, O.comments from customers AS C
+-- INNER JOIN orders AS O
+-- ON C.customerNumber = O.customerNumber
+-- WHERE O.`status` = 'on hold' AND O.comments LIKE "%credit%"
+-- SHOW CREATE TABLE orders;
+
+-- nmor 2
+-- SELECT comments FROM orders;
+-- SELECT C.customerName, O.`status`, O.comments FROM customers AS C
+-- INNER JOIN orders AS O
+-- ON C.customerNumber = O.customerNumber
+-- WHERE comments LIKE "%DHL%";
+
+-- nmor 3
+-- SELECT C.customerName, P.productName, O.`status`, O.orderDate FROM customers AS C
+-- INNER JOIN orders AS O
+-- ON C.customerNumber = O.customerNumber
+-- INNER JOIN orderdetails AS D
+-- ON O.orderNumber = D.orderNumber
+-- INNER JOIN products AS P
+-- ON P.productCode = D.productCode
+-- WHERE P.productName LIKE "%fer%"
+-- order by orderDate desc;
+
+-- nmor 4
+-- SELECT * FROM orders;
+-- SELECT 10430, date(NOW()), DATE_ADD(date(NOW()), INTERVAL 1 year), DATE_ADD(date(NOW()), INTERVAL 1 month), 'in process', NULL, customerNumber FROM customers
+-- WHERE customerName = "Anton Designs, Ltd.";
+-- INSERT INTO orders 
+-- SELECT 10430, date(NOW()), DATE_ADD(date(NOW()), INTERVAL 1 year), DATE_ADD(date(NOW()), INTERVAL 1 month), 'in process', NULL, customerNumber
+-- FROM customers
+-- WHERE customerName = "Anton Designs, Ltd.";
+-- 
+-- SELECT * FROM orderdetails;
+-- SELECT customerNumber FROM customers
+-- WHERE customerName = "Anton Designs, Ltd.";
+--
+-- SELECT * FROM orders WHERE orderNumber = 10430;
+-- SELECT 10430, productCode, 50, MSRP, 2
+-- FROM products
+-- WHERE productName = "1934 Ford V8 Coupe";
+--
+-- INSERT INTO orderdetails
+-- SELECT 10430, productCode, 50, MSRP, 2
+-- FROM products
+-- WHERE productName = "1934 Ford V8 Coupe";
