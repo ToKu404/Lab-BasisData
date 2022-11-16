@@ -15,13 +15,14 @@
 -- 	UNIQUE(nim)
 -- )
 -- 
-CREATE TABLE pinjaman(
-	tgl_pinjaman DATETIME,
-	id_mahasiswa BIGINT UNSIGNED ,
-	id_buku INT,
-	status_pengembalian TINYINT(1) DEFAULT 0,
-	id_pinjam INT UNSIGNED AUTO_INCREMENT,
-PRIMARY KEY (id_pinjam),
-FOREIGN KEY (id_mahasiswa) REFERENCES mahasiswa (id_mahasiswa),
-FOREIGN KEY (id_buku) REFERENCES buku (id_buku)
-)
+
+-- CREATE TABLE pinjaman(
+-- 	tgl_pinjaman DATETIME,
+-- 	id_mahasiswa BIGINT UNSIGNED ,
+-- 	id_buku INT,
+-- 	status_pengembalian TINYINT(1) DEFAULT 0,
+-- 	id_pinjam INT UNSIGNED AUTO_INCREMENT,
+-- PRIMARY KEY (id_pinjam),
+-- FOREIGN KEY (id_mahasiswa) REFERENCES mahasiswa (id_mahasiswa),
+-- FOREIGN KEY (id_buku) REFERENCES buku (id_buku)
+-- )
