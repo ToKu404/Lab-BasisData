@@ -43,31 +43,6 @@ HAVING `Riwayat Status` IS NOT NULL
 ORDER BY `Nama Dosen` DESC;
 	
 #no3
-SELECT * FROM customers WHERE city = 'Paris';
-SELECT * FROM offices WHERE city = 'Paris';
-SELECT * FROM employees WHERE firstName LIKE 'L%'
-SELECT * FROM employees JOIN offices USING (officeCode) GROUP BY officeCode HAVING employees.firstName LIKE 'L%'
-
-SELECT offices.city, (
-	SELECT COUNT(customers.city), (
-		SELECT offices.city, COUNT(offices.city)
-		FROM employees
-		JOIN offices
-		ON employees.officeCode = offices.officeCode
-		WHERE employees.firstName LIKE 'L%'
-		GROUP BY offices.city
-		UNION 
-		SELECT city, COUNT(city)
-		FROM customers
-		WHERE customerName LIKE 'L%'
-		GROUP BY customers.city) AS count_cities
-	FROM customers
-	GROUP BY customers.city ) AS count_city
-FROM offices
-GROUP BY 
-
-
-
 SELECT city
 FROM (
 		SELECT employees.firstName, offices.city
