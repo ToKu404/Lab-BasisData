@@ -10,7 +10,7 @@ SELECT c.customername, c.creditlimit, o.status, o.comments
 FROM customers c
 INNER JOIN orders o
 ON c.customerNumber = o.customerNumber
-WHERE o.status = 'On Hold' AND o.comments LIKE '%credit limit%';
+WHERE o.status = 'On Hold' AND o.comments LIKE '%credit limit exceeded%';
 
 # No. 2
 SELECT c.customername, o.status, o.comments
@@ -33,8 +33,11 @@ ORDER BY o.shippeddate DESC;
 
 
 # No. 4
+SELECT * FROM customers WHERE customername LIKE '%anton%'; 
+-- customernumber = 465
+
 INSERT  INTO orders(orderNumber, orderDate, requiredDate, shippedDate, status, comments, customerNumber)
-VALUES ('2022', CURRENT_DATE(), CURRENT_DATE(), CURRENT_DATE() + INTERVAL 1 YEAR, 'In Process', NULL, '465');
+VALUES ('2022', CURRENT_DATE(), CURRENT_DATE() + INTERVAL 1 YEAR, CURRENT_DATE() + INTERVAL 1 MONTH, 'In Process', NULL, '465');
 SELECT * FROM orders
 WHERE customerNumber = '465';
 
