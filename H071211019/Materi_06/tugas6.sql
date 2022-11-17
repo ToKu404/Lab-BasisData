@@ -49,17 +49,17 @@ INNER JOIN orderdetails AS od
 ON o.orderNumber = od.orderNumber
 INNER JOIN products AS pr
 ON pr.productCode = od.productCode
-WHERE pr.productName LIKE '%Ferrari Enzo%'
+WHERE pr.productName LIKE '%Ferrari Enzo%' 
 GROUP BY od.priceEach
-HAVING ((od.priceEach * SUM(od.quantityOrdered)) - (pr.buyPrice * SUM(od.quantityOrdered))) > 5000
+HAVING ((od.priceEach * SUM(od.quantityOrdered)) - (pr.buyPrice * SUM(od.quantityOrdered))) > 5000 
 ORDER BY ((od.priceEach * SUM(od.quantityOrdered)) - (pr.buyPrice * SUM(od.quantityOrdered))) DESC;
 
 # No. 5
 SELECT of.addressLine1 AS 'Alamat', 
-CONCAT(LEFT(of.phone, 6), '* **') AS 'Nomor Telp', 
+CONCAT(substring(of.phone, 1, LENGTH(of.phone)-6), '* ****') AS 'Nomor Telp', 
 COUNT(DISTINCT e.employeeNumber) AS 'Jumlah Karyawan', 
 COUNT(DISTINCT c.customerName) AS 'Jumlah Pelanggan', 
-FORMAT(AVG(p.amount),2) AS 'Rata-rata Penghasilan'
+FORMAT(AVG(p.amount), 2) AS 'Rata-rata Penghasilan'
 FROM employees AS e
 LEFT JOIN customers AS c
 ON e.employeeNumber = c.salesRepEmployeeNumber
