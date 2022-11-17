@@ -59,4 +59,4 @@ JOIN orderdetails AS od
 USING (orderNumber)
 JOIN products AS p
 USING (productCode)
-WHERE c.customerNumber = '465';
+WHERE c.customerName LIKE '%anton%';
