@@ -12,4 +12,4 @@
 -- ALTER TABLE offices
 -- MODIFY phone INT(20)
 ALTER TABLE offices
-DROP addressline2
+DROP addressline2phpmyadmin

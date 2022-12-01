@@ -21,4 +21,4 @@
 -- -- latihan
 --   SELECT * FROM  orderdetails WHERE quantityOrdered = 50 OR  priceEach >100  ORDER BY  priceEach DESC  LIMIT 7;
 -- 
---   
+--
