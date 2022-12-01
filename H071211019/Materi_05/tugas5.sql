@@ -1,11 +1,6 @@
 USE classicmodels;
 
 # No. 1
-SELECT * FROM customers;
-SELECT * FROM orders WHERE STATUS != 'Shipped';
-SELECT * FROM orderdetails;
-SELECT * payments;
-
 SELECT c.customername, c.creditlimit, o.status, o.comments
 FROM customers c
 INNER JOIN orders o
