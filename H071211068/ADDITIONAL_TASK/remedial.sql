@@ -1,0 +1,62 @@
+-- #A 10. (MEDIUM) #AZM0201
+-- select concat(first_name," ",last_name) Nama, country Negara from customer
+-- join address 
+-- using(address_id)
+-- join city 
+-- using(city_id)
+-- join country
+-- using(country_id)
+-- where country = "Indonesia"
+
+-- #C 15. (VERY HARD) #TKV0101
+-- SELECT DISTINCT film.title Judul, category.name Genre from actor
+-- JOIN film_actor
+-- USING (actor_id)
+-- JOIN film
+-- USING(film_id)
+-- JOIN film_category
+-- USING (film_id)
+-- join category
+-- using(category_id)
+-- where category.name IN (SELECT category.name from actor
+-- JOIN film_actor
+-- USING (actor_id)
+-- JOIN film
+-- USING(film_id)
+-- JOIN film_category
+-- USING (film_id)
+-- join category
+-- using(category_id)
+-- where film.title like "pulp%") AND 
+-- actor.actor_id in (SELECT actor.actor_id from actor
+-- JOIN film_actor
+-- USING (actor_id)
+-- JOIN film
+-- USING(film_id)
+-- JOIN film_category
+-- USING (film_id)
+-- join category
+-- using(category_id)
+-- where film.title like "pulp%") AND film.title <> 'PULP BEVERLY' ORDER BY film.title LIMIT 1;
+
+#C 9. (HARD) #TKH0301
+-- select category.name Genre, count(film_id) "Jumlah Film" from category
+-- join film_category
+-- using(category_id)
+-- join film
+-- using(film_id)
+-- where film_id not in (select film_id from film 
+-- join inventory 
+-- using(film_id)
+-- join rental
+-- using(inventory_id)
+-- join customer
+-- using(customer_id)
+-- join address
+-- using(address_id)
+-- join city
+-- using(city_id)
+-- join country
+-- using(country_id)
+-- where country = "Indonesia")
+-- group by genre order by `Jumlah Film` desc
